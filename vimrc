@@ -16,16 +16,18 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'ctrlP.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'taglist.vim'
+"Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Auto-Pairs'
+"Plugin 'Auto-Pairs'
 "Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
-Plugin 'sickill/vim-monokai'
+"Plugin 'sickill/vim-monokai'
+Plugin 'crusoexia/vim-monokai'
+Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
@@ -53,7 +55,7 @@ let NERDTreeIgnore=['\.o']
 "let Tlist_Use_Right_Window=1 " 在右边显示taglist窗口
 "let Tlist_Sort_Type='name'   " tag按名字排序
 
-nnoremap <silent> <F3> :TagbarToggle<CR>  
+nnoremap <silent> <F3> :TagbarToggle<CR>
 
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmp='CtrlP'
@@ -107,4 +109,10 @@ set foldmethod=syntax
 set foldlevel=99
 
 " Enable folding with the spacebar
-nnoremap <space> za
+"nnoremap <space> za
+
+set cursorline
+if $TERM == 'screen-256color'
+  set t_Co=256
+  colorscheme monokai
+endif
