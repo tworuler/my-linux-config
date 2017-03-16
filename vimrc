@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
 Plugin 'ctrlP.vim'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'taglist.vim'
@@ -44,6 +45,16 @@ call vundle#end()            " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_error_symbol='>>'
+"let g:syntastic_warning_symbol='>'
 
 nnoremap <silent> <f2> :NERDTree<CR>
 "let NERDTreeShowLineNumbers=1
