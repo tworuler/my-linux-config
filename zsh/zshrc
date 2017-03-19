@@ -85,4 +85,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export LSCOLORS=exfxcxdxbxegedabagacad
-[[ -s /Users/ycl/.autojump/etc/profile.d/autojump.sh ]] && source /Users/ycl/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
