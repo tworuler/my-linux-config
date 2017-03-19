@@ -14,7 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'ctrlP.vim'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'taglist.vim'
@@ -28,7 +28,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 "Plugin 'sickill/vim-monokai'
 Plugin 'crusoexia/vim-monokai'
-Plugin 'tomasr/molokai'
+"Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
@@ -45,9 +45,9 @@ call vundle#end()            " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
@@ -56,7 +56,7 @@ set statusline+=%*
 "let g:syntastic_error_symbol='>>'
 "let g:syntastic_warning_symbol='>'
 
-nnoremap <silent> <f2> :NERDTree<CR>
+nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
 let NERDTreeIgnore=['\.o']
 
@@ -76,7 +76,8 @@ let g:SimpylFold_docstring_preview=1
 " Vim
 let g:indentLine_color_term = 239
 " GVim
-let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_color_term = 239
+"let g:indentLine_color_gui = '#A4E57E'
 " use one of ¦, ┆, or │
 "let g:indentLine_char = '|'
 " disable by defualt
@@ -88,6 +89,8 @@ let g:indentLine_color_gui = '#A4E57E'
 "let g:indent_guides_start_level=2
 " 色块宽度
 "let g:indent_guides_guide_size=1
+
+let g:airline#extensions#tabline#enabled = 1
 
 syntax enable
 syntax on
@@ -122,8 +125,8 @@ set foldlevel=99
 " Enable folding with the spacebar
 "nnoremap <space> za
 
-set cursorline
-if $TERM == 'screen-256color'
+if $TERM == 'screen-256color' || $TERM == 'xterm-256color'
   set t_Co=256
   colorscheme monokai
+  set cursorline
 endif
