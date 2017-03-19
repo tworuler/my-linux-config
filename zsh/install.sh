@@ -10,7 +10,7 @@ else
 fi
 
 echo "update oh-my-zsh themes..."
-ls | grep "\.zsh-theme" | xargs -i bash -c 'echo "copy {}" && cp {} ~/.oh-my-zsh/themes/'
+ls | grep "\.zsh-theme" | xargs -I {} bash -c 'echo "copy {}" && cp {} ~/.oh-my-zsh/themes/'
 echo "Done!"
 
 echo "update .zshrc"
