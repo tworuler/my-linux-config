@@ -50,8 +50,7 @@ PROMPT="
 %{$fg[yellow]%}%* \
 %{$fg[green]%}%n\
 %{$fg[green]%}@\
-%{$fg[green]%}%m\
-%{$fg[white]%}:\
+%{$fg[green]%}%m: \
 %{$fg[blue]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
