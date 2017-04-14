@@ -1,7 +1,6 @@
 #!/bin/bash
 
-if [[ -d ~/.vim/bundle/Vundle.vim ]]
-then
+if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
     echo "Vundle has already been installed."
 else
     echo "Install Vundle..."
@@ -10,7 +9,17 @@ else
 fi
 
 echo "Update vimrc..."
-cp vimrc ~/.vimrc
+cp my.vim ~/.vim/my.vim
+add_source=$(cat << EOM
+" Load my common config
+source ~/.vim/my.vim
+EOM
+)
+if [ ! -e ~/.vimrc ]; then
+    echo -e "$add_source\n" > ~/.vimrc
+elif [ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]; then
+    echo -e "$add_source\n" | cat - ~/.vimrc > tmp && mv tmp ~/.vimrc
+fi
 echo "Done!"
 
 echo "Install Vim Plugins..."

@@ -5,8 +5,7 @@ cp tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf
 echo "Done!"
 
-if [[ -d ~/.tmux/tmux-powerline ]]
-then
+if [[ -d ~/.tmux/tmux-powerline ]]; then
     echo "~/.tmux/tmux-powerline exist"
 else
     echo "Install tmux powerline"

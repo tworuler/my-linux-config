@@ -1,7 +1,6 @@
 #!/bin/bash
 
-if [[ -d ~/.oh-my-zsh ]]
-then
+if [[ -d ~/.oh-my-zsh ]]; then
     echo "~/.oh-my-zsh exists."
 else
     echo "Install oh-my-zsh..."
@@ -14,11 +13,22 @@ ls | grep "\.zsh-theme" | xargs -I {} bash -c 'echo "copy {}" && cp {} ~/.oh-my-
 echo "Done!"
 
 echo "update .zshrc"
-cp zshrc ~/.zshrc
+cp my.zshrc ~/.oh-my-zsh/my.zshrc
+add_source=$(cat << EOM
+# Load my common config
+if [ -e ~/.oh-my-zsh/my.zshrc ]; then
+    source ~/.oh-my-zsh/my.zshrc
+fi
+EOM
+)
+if [ ! -e ~/.zshrc ]; then
+    echo -e "$add_source\n" >  ~/.zshrc
+elif [ "$(grep 'source ~/.oh-my-zsh/my.zshrc' ~/.zshrc)" == "" ]; then
+    echo -e "$add_source\n" | cat - ~/.zshrc > tmp && mv tmp ~/.zshrc
+fi
 echo "Done!"
 
-if [[ -d ~/.autojump ]]
-then
+if [[ -d ~/.autojump ]]; then
     echo "~/.autojump exists."
 else
     echo "Install autojump..."

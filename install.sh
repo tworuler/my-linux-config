@@ -6,8 +6,7 @@ config_list=(
     zsh
 )
 
-for dir in ${config_list[@]}
-do
+for dir in ${config_list[@]}; do
     cd $dir
     ./install.sh
     cd ..
