@@ -23,6 +23,6 @@ fi
 echo "Done!"
 
 echo "Install Vim Plugins..."
-vim +PluginInstall +qall
+vim -u <(head -40 ~/.vim/my.vim) +PluginInstall +qall
 echo "Done!"
 
