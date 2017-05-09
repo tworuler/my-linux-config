@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'ctrlP.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
 "Plugin 'Auto-Pairs'
@@ -28,7 +29,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 "Plugin 'sickill/vim-monokai'
 Plugin 'crusoexia/vim-monokai'
-"Plugin 'tomasr/molokai'
+Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
@@ -60,6 +61,7 @@ nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
 let NERDTreeIgnore=['\.o']
 
+let g:miniBufExplBRSplit = 0
 "nnoremap <silent> <F8> :TlistToggle<CR>
 "let Tlist_Show_One_File=1    " 只展示一个文件的taglist
 "let Tlist_Exit_OnlyWindow=1  " 当taglist是最后以个窗口时自动退出
@@ -76,7 +78,6 @@ let g:SimpylFold_docstring_preview=1
 " Vim
 let g:indentLine_color_term = 239
 " GVim
-let g:indentLine_color_term = 239
 "let g:indentLine_color_gui = '#A4E57E'
 " use one of ¦, ┆, or │
 "let g:indentLine_char = '|'
@@ -130,3 +131,19 @@ if $TERM == 'screen-256color' || $TERM == 'xterm-256color'
   colorscheme monokai
   set cursorline
 endif
+
+function BashHeader()
+    call setline(1, "#!/bin/bash")
+    normal o
+    normal o
+    normal G
+endf
+
+function PythonHeader()
+    0r ~/.vim/my_header/py_header.py
+    normal G
+endf
+
+autocmd bufnewfile *.sh call BashHeader()
+autocmd bufnewfile *.py call PythonHeader()
+

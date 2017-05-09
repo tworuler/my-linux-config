@@ -10,11 +10,12 @@ fi
 
 echo "Update vimrc..."
 cp my.vim ~/.vim/my.vim
-add_source=$(cat << EOM
+
+read -r -d '' add_source << EOM
 " Load my common config
 source ~/.vim/my.vim
 EOM
-)
+
 if [ ! -e ~/.vimrc ]; then
     echo -e "$add_source\n" > ~/.vimrc
 elif [ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]; then
