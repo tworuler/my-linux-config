@@ -79,6 +79,7 @@ let g:SimpylFold_docstring_preview=1
 let g:indentLine_color_term = 239
 " GVim
 "let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_conceallevel = 0
 " use one of ¦, ┆, or │
 "let g:indentLine_char = '|'
 " disable by defualt
