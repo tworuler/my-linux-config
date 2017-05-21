@@ -17,6 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'ctrlP.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
@@ -27,6 +28,9 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Yggdroot/indentLine'
+Plugin 'elzr/vim-json'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 "Plugin 'sickill/vim-monokai'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'tomasr/molokai'
@@ -36,7 +40,7 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()            " required
 "filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -60,6 +64,10 @@ call vundle#end()            " required
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
 let NERDTreeIgnore=['\.o']
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign = 'left'
 
 let g:miniBufExplBRSplit = 0
 "nnoremap <silent> <F8> :TlistToggle<CR>
@@ -79,7 +87,6 @@ let g:SimpylFold_docstring_preview=1
 let g:indentLine_color_term = 239
 " GVim
 "let g:indentLine_color_gui = '#A4E57E'
-let g:indentLine_conceallevel = 0
 " use one of ¦, ┆, or │
 "let g:indentLine_char = '|'
 " disable by defualt
@@ -93,6 +100,9 @@ let g:indentLine_conceallevel = 0
 "let g:indent_guides_guide_size=1
 
 let g:airline#extensions#tabline#enabled = 1
+
+let g:vim_markdown_conceal = 0
+let g:vim_json_syntax_conceal = 0
 
 syntax enable
 syntax on
@@ -148,3 +158,4 @@ endf
 autocmd bufnewfile *.sh call BashHeader()
 autocmd bufnewfile *.py call PythonHeader()
 
+command JsonFomat :%!python -m json.tool
