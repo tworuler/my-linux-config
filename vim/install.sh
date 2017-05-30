@@ -24,6 +24,7 @@ fi
 echo "Done!"
 
 echo "Install Vim Plugins..."
-vim -u <(head -40 ~/.vim/my.vim) +PluginInstall +qall
+line=$(grep -n "filetype plugin on" my.vim | cut -f1 -d ":")
+vim -u <(head -$line ~/.vim/my.vim) +PluginInstall +qall
 echo "Done!"
 

@@ -1,18 +1,11 @@
-"Install Vundle
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" My vim config notes: https://tworuler.github.io/notes/vim-config
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
 Plugin 'ctrlP.vim'
@@ -36,20 +29,9 @@ Plugin 'crusoexia/vim-monokai'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-"filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
+call vundle#end()
 filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -63,18 +45,13 @@ filetype plugin on
 
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
-let NERDTreeIgnore=['\.o']
+let NERDTreeIgnore=['\.o', '\.pyc']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign = 'left'
 
 let g:miniBufExplBRSplit = 0
-"nnoremap <silent> <F8> :TlistToggle<CR>
-"let Tlist_Show_One_File=1    " 只展示一个文件的taglist
-"let Tlist_Exit_OnlyWindow=1  " 当taglist是最后以个窗口时自动退出
-"let Tlist_Use_Right_Window=1 " 在右边显示taglist窗口
-"let Tlist_Sort_Type='name'   " tag按名字排序
 
 nnoremap <silent> <F3> :TagbarToggle<CR>
 
@@ -91,13 +68,6 @@ let g:indentLine_color_term = 239
 "let g:indentLine_char = '|'
 " disable by defualt
 "let g:indentLine_enabled = 0
-
-" 随 vim 自启动
-"let g:indent_guides_enable_on_vim_startup=1
-" 从第二层开始可视化显示缩进
-"let g:indent_guides_start_level=2
-" 色块宽度
-"let g:indent_guides_guide_size=1
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -121,6 +91,11 @@ set hlsearch "highlight search word
 
 set splitbelow
 set splitright
+
+nnoremap j gj
+nnoremap k gk
+"set whichwrap+=h,l
+"set whichwrap+=<,>,[,]
 
 "split navigations
 nnoremap J <C-W><C-J>
