@@ -49,6 +49,7 @@ let NERDTreeIgnore=['\.o', '\.pyc']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:NERDSpaceDelims=1
+let g:NERDCustomDelimiters = { 'python': { 'left': '#' } }
 let g:NERDDefaultAlign = 'left'
 
 let g:miniBufExplBRSplit = 0
@@ -57,8 +58,6 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmp='CtrlP'
-
-let g:SimpylFold_docstring_preview=1
 
 " Vim
 let g:indentLine_color_term = 239
