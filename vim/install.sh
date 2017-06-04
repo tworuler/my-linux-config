@@ -24,7 +24,7 @@ fi
 echo "Done!"
 
 echo "Install Vim Plugins..."
-line=$(grep -n "filetype plugin on" my.vim | cut -f1 -d ":")
+line=$(grep -n "filetype plugin indent on" my.vim | cut -f1 -d ":")
 vim -u <(head -$line ~/.vim/my.vim) +PluginInstall +qall
 echo "Done!"
 
