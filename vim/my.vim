@@ -30,18 +30,7 @@ Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
-filetype plugin on
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_error_symbol='>>'
-"let g:syntastic_warning_symbol='>'
+filetype plugin indent on
 
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
@@ -61,8 +50,6 @@ let g:ctrlp_cmp='CtrlP'
 
 " Vim
 let g:indentLine_color_term = 239
-" GVim
-"let g:indentLine_color_gui = '#A4E57E'
 " use one of ¦, ┆, or │
 "let g:indentLine_char = '|'
 " disable by defualt
@@ -131,5 +118,19 @@ endf
 
 autocmd bufnewfile *.sh call BashHeader()
 autocmd bufnewfile *.py call PythonHeader()
+
+function FileTypeDetect()
+    if match(getline(1), "C++") >= 0
+        set filetype=cpp
+    elseif match(getline(1), "python") >= 0
+        set filetype=python
+    elseif match(getline(1), "bash") >= 0
+        set filetype=sh
+    endif
+endf
+
+autocmd BufNewFile,BufRead * if expand('%:e') == '' | call FileTypeDetect() | endif
+
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 command JsonFomat :%!python -m json.tool
