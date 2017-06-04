@@ -19,12 +19,12 @@ EOM
 if [[ ! -e ~/.vimrc ]]; then
     echo -e "$add_source\n" > ~/.vimrc
 elif [[ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]]; then
-    echo -e "$add_source\n" | cat - ~/.vimrc > tmp && mv tmp ~/.vimrc
+    echo -e "$add_source\n" | cat - ~/.vimrc > vimrc.tmp && mv vimrc.tmp ~/.vimrc
 fi
 echo "Done!"
 
 echo "Install Vim Plugins..."
-line=$(grep -n "filetype plugin indent on" my.vim | cut -f1 -d ":")
+line=$(grep -n "filetype plugin on" my.vim | cut -f1 -d ":")
 vim -u <(head -$line ~/.vim/my.vim) +PluginInstall +qall
 echo "Done!"
 

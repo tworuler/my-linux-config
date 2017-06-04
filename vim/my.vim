@@ -30,7 +30,7 @@ Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
-filetype plugin indent on
+filetype plugin on
 
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
