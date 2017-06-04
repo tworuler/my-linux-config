@@ -16,9 +16,9 @@ read -r -d '' add_source << EOM
 source ~/.vim/my.vim
 EOM
 
-if [ ! -e ~/.vimrc ]; then
+if [[ ! -e ~/.vimrc ]]; then
     echo -e "$add_source\n" > ~/.vimrc
-elif [ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]; then
+elif [[ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]]; then
     echo -e "$add_source\n" | cat - ~/.vimrc > tmp && mv tmp ~/.vimrc
 fi
 echo "Done!"

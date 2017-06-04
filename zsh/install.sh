@@ -16,14 +16,12 @@ echo "update .zshrc"
 cp my.zshrc ~/.oh-my-zsh/my.zshrc
 add_source=$(cat << EOM
 # Load my common config
-if [ -e ~/.oh-my-zsh/my.zshrc ]; then
-    source ~/.oh-my-zsh/my.zshrc
-fi
+[[ -s ~/.oh-my-zsh/my.zshrc ]] && source ~/.oh-my-zsh/my.zshrc
 EOM
 )
-if [ ! -e ~/.zshrc ]; then
+if [[ ! -e ~/.zshrc ]]; then
     echo -e "$add_source\n" >  ~/.zshrc
-elif [ "$(grep 'source ~/.oh-my-zsh/my.zshrc' ~/.zshrc)" == "" ]; then
+elif [[ "$(grep 'source ~/.oh-my-zsh/my.zshrc' ~/.zshrc)" == "" ]]; then
     echo -e "$add_source\n" | cat - ~/.zshrc > tmp && mv tmp ~/.zshrc
 fi
 echo "Done!"
