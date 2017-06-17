@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd "$(dirname "$0")"
+
 if [[ -d ~/.oh-my-zsh ]]; then
     echo "~/.oh-my-zsh exists."
 else
@@ -36,4 +38,6 @@ else
     cd ..
     echo "Done!"
 fi
+
+popd
 

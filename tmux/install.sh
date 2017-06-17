@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd "$(dirname "$0")"
+
 echo "Update tmux config..."
 cp tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf
@@ -15,4 +17,6 @@ fi
 echo "Update tmux powerline config..."
 cp my-tmux-powerline-themes.sh ~/.tmux/tmux-powerline/themes/default.sh
 echo "Done!"
+
+popd
 

@@ -7,8 +7,6 @@ config_list=(
 )
 
 for dir in ${config_list[@]}; do
-    cd $dir
-    ./install.sh
-    cd ..
+    $dir/install.sh
 done
 

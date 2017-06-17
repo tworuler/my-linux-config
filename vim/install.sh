@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd "$(dirname "$0")"
+
 if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
     echo "Vundle has already been installed."
 else
@@ -27,4 +29,6 @@ echo "Install Vim Plugins..."
 line=$(grep -n "filetype plugin on" my.vim | cut -f1 -d ":")
 vim -u <(head -$line ~/.vim/my.vim) +PluginInstall +qall
 echo "Done!"
+
+popd
 
