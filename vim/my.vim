@@ -84,11 +84,11 @@ nnoremap k gk
 "set whichwrap+=<,>,[,]
 
 "split navigations
-nnoremap J <C-W><C-J>
-nnoremap K <C-W><C-K>
-nnoremap L <C-W><C-L>
-nnoremap H <C-W><C-H>
-inoremap <C-W> <ESC><C-W>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+"inoremap <C-W> <ESC><C-W>
 
 " Enable folding
 "set foldmethod=indent
