@@ -32,14 +32,19 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin on
 
+"nerdtree config
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
 let NERDTreeIgnore=['\.o', '\.pyc']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"nerdcommenter config
 let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = { 'python': { 'left': '#' } }
 let g:NERDDefaultAlign = 'left'
+" <C-_> means ctrl+/
+nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 
 let g:miniBufExplBRSplit = 0
 
