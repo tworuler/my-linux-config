@@ -138,4 +138,10 @@ autocmd BufNewFile,BufRead * if expand('%:e') == '' | call FileTypeDetect() | en
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" json format
 command JsonFomat :%!python -m json.tool
+
+" Copy Paste on System Clipboard
+vnoremap <C-c> :<BS><BS><BS><BS><BS>silent '<,'>w !xsel -ib<CR>
+
+
