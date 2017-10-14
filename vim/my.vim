@@ -103,20 +103,23 @@ set foldlevel=99
 " Enable folding with the spacebar
 "nnoremap <space> za
 
+" autoload my.vim
+autocmd! bufwritepost my.vim source %
+
 if $TERM == 'screen-256color' || $TERM == 'xterm-256color'
   set t_Co=256
   colorscheme monokai
   set cursorline
 endif
 
-function BashHeader()
+function! BashHeader()
     call setline(1, "#!/bin/bash")
     normal o
     normal o
     normal G
 endf
 
-function PythonHeader()
+function! PythonHeader()
     0r ~/.vim/my_header/py_header.py
     normal G
 endf
@@ -124,7 +127,7 @@ endf
 autocmd bufnewfile *.sh call BashHeader()
 autocmd bufnewfile *.py call PythonHeader()
 
-function FileTypeDetect()
+function! FileTypeDetect()
     if match(getline(1), "C++") >= 0
         set filetype=cpp
     elseif match(getline(1), "python") >= 0
@@ -139,9 +142,8 @@ autocmd BufNewFile,BufRead * if expand('%:e') == '' | call FileTypeDetect() | en
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " json format
-command JsonFomat :%!python -m json.tool
+command! JsonFomat :%!python -m json.tool
 
 " Copy Paste on System Clipboard
-vnoremap <C-c> :<BS><BS><BS><BS><BS>silent '<,'>w !xsel -ib<CR>
-
+vnoremap <C-c> :<C-u>silent '<,'>w !xsel -ib<CR>
 
