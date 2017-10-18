@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'taglist.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
 "Plugin 'Auto-Pairs'
 "Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-airline/vim-airline'
@@ -83,8 +84,23 @@ set hlsearch "highlight search word
 set splitbelow
 set splitright
 
+set history=200
+
+" Enable folding
+"set foldmethod=indent
+set foldmethod=syntax
+set foldlevel=99
+
+" zsh mode tab
+set wildmenu
+set wildmode=full
+
+set pastetoggle=<F5>
+
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 "set whichwrap+=h,l
 "set whichwrap+=<,>,[,]
 
@@ -93,12 +109,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-"inoremap <C-W> <ESC><C-W>
 
-" Enable folding
-"set foldmethod=indent
-set foldmethod=syntax
-set foldlevel=99
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
+
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 " Enable folding with the spacebar
 "nnoremap <space> za
