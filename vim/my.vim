@@ -80,6 +80,7 @@ set laststatus=2
 
 "set ignorecase "ignore case when search
 set hlsearch "highlight search word
+set incsearch
 
 set splitbelow
 set splitright
