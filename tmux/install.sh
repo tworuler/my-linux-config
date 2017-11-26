@@ -1,9 +1,16 @@
 #!/bin/bash
 
+tmux_version=$(tmux -V | cut -f2 -d ' ')
+
 pushd "$(dirname "$0")"
 
+echo "$tmux_version"
 echo "Update tmux config..."
-cp tmux.conf ~/.tmux.conf
+if [[ $tmux_version == 2.* ]]; then
+    cp tmux.conf ~/.tmux.conf
+else
+    sed 's/ -c "#{pane_current_path}"//' tmux.conf > ~/.tmux.conf
+fi
 tmux source ~/.tmux.conf
 echo "Done!"
 
