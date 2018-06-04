@@ -12,6 +12,7 @@ fi
 
 echo "Update vimrc..."
 cp my.vim ~/.vim/my.vim
+cp -r my_header ~/.vim
 
 read -r -d '' add_source << EOM
 " Load my common config

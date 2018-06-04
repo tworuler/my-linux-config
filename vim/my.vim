@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -25,13 +25,20 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'elzr/vim-json'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+"Plugin 'chriskempson/base16-vim'
+"Plugin 'joshdick/onedark.vim'
+"Plugin 'dracula/vim', { 'as': 'dracula' }
+"Plugin 'rakr/vim-one'
 "Plugin 'sickill/vim-monokai'
 Plugin 'crusoexia/vim-monokai'
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin on
+
+let g:ycm_python_binary_path = 'python'
 
 "nerdtree config
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
@@ -125,7 +132,7 @@ autocmd! bufwritepost my.vim source %
 
 if $TERM == 'screen-256color' || $TERM == 'xterm-256color'
   set t_Co=256
-  colorscheme monokai
+  colorscheme codedark
   set cursorline
 endif
 
