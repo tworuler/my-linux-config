@@ -39,6 +39,11 @@ call vundle#end()
 filetype plugin on
 
 let g:ycm_python_binary_path = 'python'
+"let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+"let g:ycm_autoclose_preview_window_after_completion=1
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "nerdtree config
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
