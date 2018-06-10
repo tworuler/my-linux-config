@@ -6,8 +6,11 @@ pushd "$(dirname "$0")"
 
 echo "$tmux_version"
 echo "Update tmux config..."
-if [[ $tmux_version == 2.* ]]; then
+if [[ $tmux_version == 2.1 ]]; then
     cp tmux.conf ~/.tmux.conf
+elif [[ $tmux_version == 2.* ]]; then
+    # tmux utf8 option removed after 2.2
+    grep -v 'status-utf8' tmux.conf > ~/.tmux.conf
 else
     sed 's/ -c "#{pane_current_path}"//' tmux.conf > ~/.tmux.conf
 fi
