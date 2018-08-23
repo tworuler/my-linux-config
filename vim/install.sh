@@ -2,12 +2,9 @@
 
 pushd "$(dirname "$0")"
 
-if [[ -d ~/.vim/bundle/Vundle.vim ]]; then
-    echo "Vundle has already been installed."
-else
-    echo "Install Vundle..."
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-    echo "Done!"
+if [[ ! -e ~/.vim/autoload/plug.vim ]]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 echo "Update vimrc..."
@@ -24,12 +21,12 @@ if [[ ! -e ~/.vimrc ]]; then
 elif [[ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]]; then
     echo -e "$add_source\n" | cat - ~/.vimrc > vimrc.tmp && mv vimrc.tmp ~/.vimrc
 fi
-echo "Done!"
 
 echo "Install Vim Plugins..."
-line=$(grep -n "filetype plugin on" my.vim | cut -f1 -d ":")
-vim -u <(head -$line ~/.vim/my.vim) +PluginInstall +qall
-echo "Done!"
+line=$(grep -n "call plug#end()" my.vim | cut -f1 -d ":")
+vim -u <(head -$line ~/.vim/my.vim) +PlugInstall +qall
+# install ycm
+# cd ~/.vim/plugged/YouCompleteMe && python install.py --clang-completer
 
 popd
 

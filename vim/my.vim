@@ -1,42 +1,39 @@
 " My vim config notes: https://tworuler.github.io/notes/vim-config
 
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'scrooloose/syntastic'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'fholgado/minibufexpl.vim'
-"Plugin 'taglist.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-surround'
-"Plugin 'Auto-Pairs'
-"Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'Lokaltog/vim-powerline'
-"Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Yggdroot/indentLine'
-Plugin 'elzr/vim-json'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-"Plugin 'chriskempson/base16-vim'
-"Plugin 'joshdick/onedark.vim'
-"Plugin 'dracula/vim', { 'as': 'dracula' }
-"Plugin 'rakr/vim-one'
-"Plugin 'sickill/vim-monokai'
-Plugin 'crusoexia/vim-monokai'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
+"Plug 'scrooloose/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'fholgado/minibufexpl.vim'
+"Plug 'taglist.vim'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
+"Plug 'Auto-Pairs'
+"Plug 'tmhedberg/SimpylFold'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'Lokaltog/vim-powerline'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'elzr/vim-json'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+"Plug 'chriskempson/base16-vim'
+"Plug 'joshdick/onedark.vim'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'rakr/vim-one'
+"Plug 'sickill/vim-monokai'
+Plug 'crusoexia/vim-monokai'
+Plug 'tomasiser/vim-code-dark'
+Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
 
-call vundle#end()
-filetype plugin on
+"filetype indent off
 
 let g:ycm_python_binary_path = 'python'
 "let g:ycm_min_num_of_chars_for_completion=2

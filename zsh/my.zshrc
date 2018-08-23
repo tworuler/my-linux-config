@@ -86,5 +86,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -alh"
 alias l="ls -lh"
-export LSCOLORS=exfxcxdxbxegedabagacad
+# export LSCOLORS=exfxcxdxbxegedabagacad
+export LSCOLORS=ExFxBxDxCxegedabagacad # like Ubuntu
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
