@@ -15,14 +15,15 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 "Plug 'Auto-Pairs'
 "Plug 'tmhedberg/SimpylFold'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'Lokaltog/vim-powerline'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'elzr/vim-json'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'Lokaltog/vim-powerline'
 "Plug 'chriskempson/base16-vim'
 "Plug 'joshdick/onedark.vim'
 "Plug 'dracula/vim', { 'as': 'dracula' }
@@ -68,6 +69,11 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmp='CtrlP'
+
+" vim-cpp-enhanced-highlight config
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
 
 " Vim
 let g:indentLine_color_term = 239
