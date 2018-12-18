@@ -84,14 +84,17 @@ let g:vim_json_syntax_conceal = 0
 syntax enable
 syntax on
 set nu
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set ruler  "show position of cursor
+set laststatus=2
+
 set autoindent
+set smartindent
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set ruler  "show position of cursor
-set laststatus=2
+autocmd FileType cpp setl ts=2 sts=2 sw=2
 
 "set ignorecase "ignore case when search
 set hlsearch "highlight search word
