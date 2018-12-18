@@ -5,6 +5,7 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 "Plug 'scrooloose/syntastic'
+Plug 'rhysd/vim-clang-format'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -41,6 +42,11 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 "let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" vim-clang-format config
+let g:clang_format#code_style = 'google'
+let g:clang_format#style_options = {
+            \ "IndentWidth" : 2}
 
 "nerdtree config
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
