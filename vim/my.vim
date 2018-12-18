@@ -28,9 +28,9 @@ Plug 'plasticboy/vim-markdown'
 "Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'rakr/vim-one'
 "Plug 'sickill/vim-monokai'
+"Plug 'tomasr/molokai'
 Plug 'crusoexia/vim-monokai'
 Plug 'tomasiser/vim-code-dark'
-Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
