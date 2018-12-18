@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 "Plug 'scrooloose/syntastic'
 Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -119,6 +122,9 @@ set foldlevel=99
 " zsh mode tab
 set wildmenu
 set wildmode=full
+
+" mainly for gitgutter
+set updatetime=500
 
 set pastetoggle=<F5>
 
