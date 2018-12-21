@@ -85,7 +85,7 @@ let g:cpp_class_decl_highlight = 1
 
 " Vim
 let g:indentLine_color_term = 239
-" use one of Â¦, â”†, or â”‚
+" use one of ¦, ¿, or ¿
 "let g:indentLine_char = '|'
 " disable by defualt
 "let g:indentLine_enabled = 0
@@ -98,6 +98,7 @@ let g:vim_json_syntax_conceal = 0
 syntax enable
 syntax on
 set nu
+set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set ruler  "show position of cursor
 set laststatus=2
