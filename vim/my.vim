@@ -12,12 +12,13 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fholgado/minibufexpl.vim'
 "Plug 'taglist.vim'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 "Plug 'Auto-Pairs'
 "Plug 'tmhedberg/SimpylFold'
@@ -61,6 +62,7 @@ let g:clang_format#style_options = {
 
 "nerdtree config
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
+nnoremap <silent> <c-e> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
 let NERDTreeIgnore=['\.o', '\.pyc']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -77,8 +79,14 @@ let g:miniBufExplBRSplit = 0
 
 nnoremap <silent> <F3> :TagbarToggle<CR>
 
-let g:ctrlp_map='<c-p>'
-let g:ctrlp_cmp='CtrlP'
+" LeaderF config
+let g:Lf_ShortcutF = '<c-p>'
+noremap <c-n> :LeaderfMru<cr>
+noremap <c-m> :LeaderfFunction!<cr>
+
+" ctrlp config
+" let g:ctrlp_map='<c-p>'
+" let g:ctrlp_cmp='CtrlP'
 
 " vim-cpp-enhanced-highlight config
 let g:cpp_class_scope_highlight = 1
