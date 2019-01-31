@@ -83,6 +83,9 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 let g:Lf_ShortcutF = '<c-p>'
 noremap <c-n> :LeaderfMru<cr>
 noremap <c-m> :LeaderfFunction!<cr>
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WindowHeight = 0.30
 
 " ctrlp config
 " let g:ctrlp_map='<c-p>'
