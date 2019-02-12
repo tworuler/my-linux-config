@@ -1,3 +1,6 @@
 *.swp
 .DS_Store
+
 tmux/fonts/
+zsh/autojump
+zsh/z

@@ -28,14 +28,21 @@ elif [[ "$(grep 'source ~/.oh-my-zsh/my.zshrc' ~/.zshrc)" == "" ]]; then
 fi
 echo "Done!"
 
-if [[ -d ~/.autojump ]]; then
-    echo "~/.autojump exists."
-else
-    echo "Install autojump..."
-    git clone git://github.com/joelthelion/autojump.git
-    cd autojump
-    ./install.py
-    cd ..
+# if [[ -d ~/.autojump ]]; then
+#     echo "~/.autojump exists."
+# else
+#     echo "Install autojump..."
+#     git clone git://github.com/joelthelion/autojump.git
+#     cd autojump
+#     ./install.py
+#     cd ..
+#     echo "Done!"
+# fi
+
+if [[ ! -e ~/.oh-my-zsh/z.sh ]]; then
+    echo "Install z.sh..."
+    git clone git://github.com/rupa/z.git
+    cp z/z.sh ~/.oh-my-zsh/z.sh
     echo "Done!"
 fi
 

@@ -88,4 +88,5 @@ alias ll="ls -alh"
 alias l="ls -lh"
 # export LSCOLORS=exfxcxdxbxegedabagacad
 export LSCOLORS=ExFxBxDxCxegedabagacad # like Ubuntu
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+# [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.oh-my-zsh/z.sh ]] && source ~/.oh-my-zsh/z.sh
