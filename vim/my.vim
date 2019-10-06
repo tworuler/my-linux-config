@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 "Plug 'scrooloose/syntastic'
 Plug 'Chiel92/vim-autoformat'
-Plug 'rhysd/vim-clang-format'
+"Plug 'rhysd/vim-clang-format'
 Plug 'kana/vim-textobj-user'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'tpope/vim-fugitive'
@@ -56,9 +56,9 @@ let g:formatters_python = ['yapf', 'autopep8', 'black']
 let g:formatter_yapf_style = 'pep8'
 
 " vim-clang-format config
-let g:clang_format#code_style = 'google'
-let g:clang_format#style_options = {
-            \ "IndentWidth" : 2}
+" let g:clang_format#code_style = 'google'
+" let g:clang_format#style_options = {
+"            \ "IndentWidth" : 2}
 
 "nerdtree config
 nnoremap <silent> <f2> :NERDTreeToggle<CR>
@@ -209,6 +209,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " json format
 command! JsonFomat :%!python -m json.tool
+command! ClangFomat :%!clang-format
 command! Strip :%s/\s\+$//e
 
 " Copy Paste on System Clipboard
