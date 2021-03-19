@@ -3,7 +3,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 "Plug 'scrooloose/syntastic'
 Plug 'Chiel92/vim-autoformat'
 "Plug 'rhysd/vim-clang-format'
