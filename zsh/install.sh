@@ -6,7 +6,7 @@ if [[ -d ~/.oh-my-zsh ]]; then
     echo "~/.oh-my-zsh exists."
 else
     echo "Install oh-my-zsh..."
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
     echo "Done!"
 fi
 
@@ -32,7 +32,7 @@ echo "Done!"
 #     echo "~/.autojump exists."
 # else
 #     echo "Install autojump..."
-#     git clone git://github.com/joelthelion/autojump.git
+#     git clone https://github.com/joelthelion/autojump.git
 #     cd autojump
 #     ./install.py
 #     cd ..
@@ -41,7 +41,7 @@ echo "Done!"
 
 if [[ ! -e ~/.oh-my-zsh/z.sh ]]; then
     echo "Install z.sh..."
-    git clone git://github.com/rupa/z.git
+    git clone https://github.com/rupa/z.git
     cp z/z.sh ~/.oh-my-zsh/z.sh
     echo "Done!"
 fi
