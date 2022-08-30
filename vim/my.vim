@@ -72,8 +72,8 @@ let g:NERDSpaceDelims=1
 let g:NERDCustomDelimiters = { 'python': { 'left': '#' } }
 let g:NERDDefaultAlign = 'left'
 " <C-_> means ctrl+/
-nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
-vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+nnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
+vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 
 let g:miniBufExplBRSplit = 0
 
