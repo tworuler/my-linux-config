@@ -1,20 +1,21 @@
-FROM ubuntu:18.04
-
 #----------------------------------------------------------------------------
 # Base Develop Environment
 #----------------------------------------------------------------------------
-ARG PKGS="vim zsh tmux git curl wget unzip net-tools python3 tig htop ncdu dstat gcc g++"
-ARG MORE_PKGS="libopencv-dev"
+FROM ubuntu:22.04 AS base-dev
+ARG PKGS="vim zsh tmux man git locate curl wget unzip tree net-tools python3 tig htop ncdu dstat gcc g++"
+ARG MORE_PKGS="cmake ninja-build libopencv-dev llvm clang libc++-dev gdb"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ Asia/Shanghai
 RUN apt update && apt install -y ${PKGS} ${MORE_PKGS}
-RUN mkdir -p /root/git; cd /root/git; \
-    git clone https://github.com/tworuler/my-linux-config.git; \
-    cd my-linux-config; bash install.sh
+RUN cd /tmp && \
+    git clone https://github.com/tworuler/my-linux-config.git && \
+    cd my-linux-config && \
+    bash install.sh
 
 #----------------------------------------------------------------------------
 # Android Environment
 #----------------------------------------------------------------------------
+FROM base-dev AS android-dev
 ARG ANDROID_DEV_HOME=/android
 RUN mkdir -p ${ANDROID_DEV_HOME}
 
