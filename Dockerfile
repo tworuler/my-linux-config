@@ -2,20 +2,26 @@
 # Base Develop Environment
 #----------------------------------------------------------------------------
 FROM ubuntu:22.04 AS base-dev
-ARG PKGS="vim zsh tmux man git locate curl wget unzip tree net-tools python3 tig htop ncdu dstat gcc g++"
-ARG MORE_PKGS="cmake ninja-build libopencv-dev llvm clang libc++-dev gdb"
+ARG PKGS="vim zsh tmux man git iputils-ping locate curl wget unzip tree net-tools python3 tig htop ncdu dstat gcc g++"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ Asia/Shanghai
-RUN apt update && apt install -y ${PKGS} ${MORE_PKGS}
+RUN apt update && apt install -y ${PKGS}
 RUN cd /tmp && \
     git clone https://github.com/tworuler/my-linux-config.git && \
     cd my-linux-config && \
     bash install.sh
 
 #----------------------------------------------------------------------------
+# CPP Environment
+#----------------------------------------------------------------------------
+FROM base-dev AS cpp-dev
+ARG CPP_PKGS="cmake ninja-build libopencv-dev llvm clang libc++-dev gdb"
+RUN apt update && apt install -y ${CPP_PKGS}
+
+#----------------------------------------------------------------------------
 # Android Environment
 #----------------------------------------------------------------------------
-FROM base-dev AS android-dev
+FROM cpp-dev AS android-dev
 ARG ANDROID_DEV_HOME=/android
 RUN mkdir -p ${ANDROID_DEV_HOME}
 
