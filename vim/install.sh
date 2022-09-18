@@ -12,16 +12,12 @@ fi
 cp my.vim ~/.vim/my.vim
 cp -r my_header ~/.vim
 
-add_source=$(cat << EOM
-" Load my common config
-source ~/.vim/my.vim
-EOM
-)
+LOAD="source ~/.vim/my.vim"
 
 if [[ ! -e ~/.vimrc ]]; then
-    echo -e "$add_source\n" > ~/.vimrc
-elif [[ "$(grep 'source ~/.vim/my.vim' ~/.vimrc)" == "" ]]; then
-    echo -e "$add_source\n" | cat - ~/.vimrc > vimrc.tmp && mv vimrc.tmp ~/.vimrc
+    echo -e "${LOAD}\n" > ~/.vimrc
+elif [[ "$(grep "${LOAD}" ~/.vimrc)" == "" ]]; then
+    echo -e "${LOAD}\n" | cat - ~/.vimrc > vimrc.tmp && mv vimrc.tmp ~/.vimrc
 fi
 
 line=$(grep -n "call plug#end()" my.vim | cut -f1 -d ":")
