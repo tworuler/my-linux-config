@@ -1,29 +1,15 @@
 #!/bin/bash
 
-tmux_version=$(tmux -V | cut -f2 -d ' ')
+set -ex
 
-pushd "$(dirname "$0")"
+DIR=$(cd "$(dirname "$0")"; pwd)
 
-echo "$tmux_version"
-echo "Update tmux config..."
-if [[ $tmux_version == 1.* ]]; then
-    sed 's/ -c "#{pane_current_path}"//' tmux.conf > ~/.tmux.conf
-else
-    cp tmux.conf ~/.tmux.conf
-fi
+cp ${DIR}/tmux.conf ~/.tmux.conf
 tmux source ~/.tmux.conf
-echo "Done!"
 
-if [[ -d ~/.tmux/tmux-powerline ]]; then
-    echo "~/.tmux/tmux-powerline exist"
-else
-    echo "Install tmux powerline"
+if [[ ! -d ~/.tmux/tmux-powerline ]]; then
     git clone https://github.com/erikw/tmux-powerline.git ~/.tmux/tmux-powerline
-    echo "Done!"
 fi
-echo "Update tmux powerline config..."
-cp my-tmux-powerline-themes.sh ~/.tmux/tmux-powerline/themes/default.sh
-echo "Done!"
 
-popd
+cp my-tmux-powerline-themes.sh ~/.tmux/tmux-powerline/themes/default.sh
 
