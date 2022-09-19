@@ -14,7 +14,7 @@ Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'fholgado/minibufexpl.vim'
 "Plug 'taglist.vim'
@@ -61,11 +61,11 @@ let g:formatter_yapf_style = 'pep8'
 "            \ "IndentWidth" : 2}
 
 "nerdtree config
-nnoremap <silent> <f2> :NERDTreeToggle<CR>
-nnoremap <silent> <c-e> :NERDTreeToggle<CR>
+"nnoremap <silent> <f2> :NERDTreeToggle<CR>
+"nnoremap <silent> <c-e> :NERDTreeToggle<CR>
 "let NERDTreeShowLineNumbers=1
-let NERDTreeIgnore=['\.o', '\.pyc']
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"let NERDTreeIgnore=['\.o', '\.pyc']
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "nerdcommenter config
 let g:NERDSpaceDelims=1
@@ -80,12 +80,15 @@ let g:miniBufExplBRSplit = 0
 nnoremap <silent> <F3> :TagbarToggle<CR>
 
 " LeaderF config
-let g:Lf_ShortcutF = '<c-p>'
-noremap <c-n> :LeaderfMru<cr>
-noremap <c-m> :LeaderfFunction!<cr>
+let g:Lf_ShortcutF = '<C-P>'
+noremap <C-N> :LeaderfMru<CR>
+noremap <C-I>f :LeaderfFunction!<CR>
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WindowHeight = 0.30
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+"let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" } "for powerline font
+
 
 " ctrlp config
 " let g:ctrlp_map='<c-p>'
@@ -163,8 +166,8 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap [b :bp<CR>
 nnoremap ]b :bn<CR>
 
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
 
 " Enable folding with the spacebar
 "nnoremap <space> za
@@ -214,4 +217,3 @@ command! W :w !sudo tee %
 
 " Copy Paste on System Clipboard
 vnoremap <C-c> :<C-u>silent '<,'>w !xsel -ib<CR>
-
