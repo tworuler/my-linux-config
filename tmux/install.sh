@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 DIR=$(cd "$(dirname "$0")"; pwd)
 
@@ -11,5 +11,5 @@ if [[ ! -d ~/.tmux/tmux-powerline ]]; then
     git clone https://github.com/erikw/tmux-powerline.git ~/.tmux/tmux-powerline
 fi
 
-cp my-tmux-powerline-themes.sh ~/.tmux/tmux-powerline/themes/default.sh
+cp ${DIR}/my-tmux-powerline-themes.sh ~/.tmux/tmux-powerline/themes/default.sh
 
