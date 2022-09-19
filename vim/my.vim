@@ -86,8 +86,9 @@ noremap <C-I>f :LeaderfFunction!<CR>
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WindowHeight = 0.30
+"let g:Lf_ShowDevIcons = 0
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-"let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" } "for powerline font
+"let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" } "for powerline font  
 
 
 " ctrlp config
@@ -101,7 +102,7 @@ let g:cpp_class_decl_highlight = 1
 
 " Vim
 let g:indentLine_color_term = 239
-" use one of �, �, or �
+" use one of ¦, ┆, │, ⎸, or ▏
 "let g:indentLine_char = '|'
 " disable by defualt
 "let g:indentLine_enabled = 0
