@@ -12,6 +12,7 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'scrooloose/nerdtree'
