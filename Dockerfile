@@ -5,11 +5,11 @@ FROM ubuntu:22.04 AS base-dev
 ARG PKGS="vim zsh tmux man git iputils-ping locate curl wget zip unzip tree rsync net-tools python3 htop ncdu dstat axel tig gcc g++"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ Asia/Shanghai
+ENV LANG=en_US.UTF-8
 RUN apt update && apt install -y ${PKGS}
-RUN cd /tmp && \
-    git clone https://github.com/tworuler/my-linux-config.git && \
-    cd my-linux-config && \
-    bash install.sh
+RUN git clone https://github.com/tworuler/my-linux-config.git /tmp/my-linux-config && \
+    bash /tmp/my-linux-config/install.sh && \
+    rm -rf /tmp/my-linux-config
 
 #----------------------------------------------------------------------------
 # CPP Environment
