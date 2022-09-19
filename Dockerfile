@@ -2,7 +2,7 @@
 # Base Develop Environment
 #----------------------------------------------------------------------------
 FROM ubuntu:22.04 AS base-dev
-ARG PKGS="vim zsh tmux man git iputils-ping locate curl wget unzip tree net-tools python3 tig htop ncdu dstat gcc g++"
+ARG PKGS="vim zsh tmux man git iputils-ping locate curl wget zip unzip tree rsync net-tools python3 htop ncdu dstat axel tig gcc g++"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ Asia/Shanghai
 RUN apt update && apt install -y ${PKGS}
