@@ -2,7 +2,7 @@
 
 set -e
 
-pushd "$(dirname "$0")"
+pushd "$(dirname "$0")" > /dev/null
 
 if [[ ! -e ~/.vim/autoload/plug.vim ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -25,5 +25,5 @@ vim -u <(head -$line ~/.vim/my.vim) +PlugInstall +qall
 # install ycm
 # cd ~/.vim/plugged/YouCompleteMe && python install.py --clang-completer
 
-popd
+popd > /dev/null
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd "$(dirname "$0")"
+pushd "$(dirname "$0")" > /dev/null
 
 config_list=(
     vim
@@ -12,4 +12,4 @@ for dir in ${config_list[@]}; do
     $dir/install.sh
 done
 
-popd
+popd > /dev/null
