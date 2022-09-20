@@ -8,10 +8,10 @@
   },
   "Ansi 1 Color": {
     "Alpha Component": 1,
-    "Blue Component": 0,
+    "Blue Component": 0.12476062774658203,
     "Color Space": "sRGB",
-    "Green Component": 0.10693156010432543,
-    "Red Component": 0.8814926147460938
+    "Green Component": 0.23093362330288159,
+    "Red Component": 1
   },
   "Ansi 10 Color": {
     "Blue Component": 0.3333333432674408,
@@ -87,8 +87,10 @@
     "Red Component": 0.3333333432674408
   },
   "Ansi 9 Color": {
-    "Blue Component": 0.3333333432674408,
-    "Green Component": 0.3333333432674408,
+    "Alpha Component": 1,
+    "Blue Component": 0.403921568627451,
+    "Color Space": "sRGB",
+    "Green Component": 0.42745098039215684,
     "Red Component": 1
   },
   "BM Growl": true,
@@ -149,7 +151,7 @@
     "Green Component": 0.7333333492279053,
     "Red Component": 0.7333333492279053
   },
-  "Guid": "D52A0E50-DC6B-4E06-B38B-A1298E71A616",
+  "Guid": "C76C97AB-D160-4A9C-988C-94E48988C07A",
   "Has Hotkey": false,
   "Hide After Opening": false,
   "Horizontal Spacing": 1,
