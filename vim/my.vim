@@ -15,9 +15,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'fholgado/minibufexpl.vim'
+Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+" Plug 'fholgado/minibufexpl.vim'
 "Plug 'taglist.vim'
 "Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
@@ -45,6 +45,9 @@ call plug#end()
 
 "filetype indent off
 
+nnoremap <Space> <NOP>
+let mapleader = "\<Space>"
+
 let g:ycm_python_binary_path = 'python'
 "let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_complete_in_comments = 1
@@ -62,11 +65,20 @@ let g:formatter_yapf_style = 'pep8'
 "            \ "IndentWidth" : 2}
 
 "nerdtree config
-"nnoremap <silent> <f2> :NERDTreeToggle<CR>
-"nnoremap <silent> <c-e> :NERDTreeToggle<CR>
-"let NERDTreeShowLineNumbers=1
-"let NERDTreeIgnore=['\.o', '\.pyc']
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>n :NERDTreeVCSFind<CR>
+nnoremap <silent> <leader>t :NERDTreeToggleVCS \| wincmd p<CR>
+let NERDTreeShowLineNumbers=1
+let NERDTreeIgnore=['\.o', '\.pyc']
+command! NERDTreeVCSFind : if !g:NERDTree.IsOpen() | NERDTreeVCS | wincmd p | endif | NERDTreeFind | wincmd p
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and
+" bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 "nerdcommenter config
 let g:NERDSpaceDelims=1
@@ -78,12 +90,12 @@ vnoremap <C-_> :call nerdcommenter#Comment(0,"toggle")<CR>
 
 let g:miniBufExplBRSplit = 0
 
-nnoremap <silent> <F3> :TagbarToggle<CR>
+"nnoremap <silent> <F3> :TagbarToggle<CR>
 
 " LeaderF config
 let g:Lf_ShortcutF = '<C-P>'
 noremap <C-N> :LeaderfMru<CR>
-noremap <C-I>f :LeaderfFunction!<CR>
+noremap <leader>f :LeaderfFunction!<CR>
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WindowHeight = 0.30
