@@ -37,7 +37,7 @@ ZSH_THEME="my_ys"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -84,9 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ll="ls -alh"
-alias l="ls -lh"
-# export LSCOLORS=exfxcxdxbxegedabagacad
-export LSCOLORS=ExFxBxDxCxegedabagacad # like Ubuntu
+
 # [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 [[ -s ~/.oh-my-zsh/z.sh ]] && source ~/.oh-my-zsh/z.sh
+
+# export LSCOLORS=exfxcxdxbxegedabagacad
+export LSCOLORS=ExFxBxDxCxegedabagacad # like Ubuntu
+
+alias ll="ls -alh"
+alias l="ls -lh"
+
+alias gitomz="command git config --unset-all oh-my-zsh.hide-status && git config --unset-all oh-my-zsh.hide-dirty"
+alias gitomzd="command git config --add oh-my-zsh.hide-status 1 && git config --add oh-my-zsh.hide-dirty 1"
