@@ -100,7 +100,7 @@ let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WindowHeight = 0.30
 "let g:Lf_ShowDevIcons = 0
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+"let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 "let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" } "for powerline font  
 
 
@@ -121,6 +121,7 @@ let g:indentLine_color_term = 239
 "let g:indentLine_enabled = 0
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 let g:vim_markdown_conceal = 0
 let g:vim_json_syntax_conceal = 0
@@ -177,8 +178,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap [b :bp<CR>
-nnoremap ]b :bn<CR>
+"nnoremap [b :bp<CR>
+"nnoremap ]b :bn<CR>
+nnoremap g[ :bp<CR>
+nnoremap g] :bn<CR>
 
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
