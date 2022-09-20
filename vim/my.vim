@@ -95,13 +95,22 @@ let g:miniBufExplBRSplit = 0
 " LeaderF config
 let g:Lf_ShortcutF = '<C-P>'
 noremap <C-N> :LeaderfMru<CR>
-noremap <leader>f :LeaderfFunction!<CR>
+" don't show the help in normal mode
+let g:Lf_HideHelp = 1
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WindowHeight = 0.30
-"let g:Lf_ShowDevIcons = 0
-"let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+"popup mode
+"let g:Lf_WindowPosition = 'popup'
+"let g:Lf_PreviewInPopup = 1
 "let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2" } "for powerline font  
+"let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+"noremap <leader>ff :LeaderfFunction!<CR>
+noremap <leader>ff :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+noremap <leader>fl :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
 
 " ctrlp config
