@@ -135,7 +135,6 @@
         "configuration" : {
           "knobs" : {
             "base: priority" : 5,
-            "base: compression resistance" : 1,
             "shared text color" : {
               "Red Component" : 0.8460000000000002,
               "Color Space" : "sRGB",
@@ -143,6 +142,7 @@
               "Alpha Component" : 1,
               "Green Component" : 0.63
             },
+            "base: compression resistance" : 1,
             "format" : "M\/dd h:mm"
           },
           "layout advanced configuration dictionary value" : {
@@ -459,7 +459,7 @@
   },
   "Name" : "MyProfile3",
   "Blinking Cursor" : true,
-  "Guid" : "C76C97AB-D160-4A9C-988C-94E48988C07A",
+  "Guid" : "D52A0E50-DC6B-4E06-B38B-A1298E71A616",
   "Idle Code" : 0,
   "Ansi 10 Color" : {
     "Green Component" : 1,
@@ -523,7 +523,7 @@
   "Bound Hosts" : [
 
   ],
-  "Non Ascii Font" : "DejaVuSansMonoPowerline 12",
+  "Non Ascii Font" : "HackNerdFontCompleteM-Regular 12",
   "Ansi 13 Color" : {
     "Green Component" : 0.3333333432674408,
     "Red Component" : 1,
