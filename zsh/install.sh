@@ -4,6 +4,7 @@ set -e
 
 DIR=$(cd "$(dirname "$0")"; pwd)
 
+#install ohmyzsh
 if [[ ! -d ~/.oh-my-zsh ]]; then
     git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 fi
@@ -18,7 +19,14 @@ elif [[ $(grep "${LOAD_ZSH}" ~/.zshrc) == "" ]]; then
     echo -e "${LOAD_ZSH}\n" | cat - ~/.zshrc > ${DIR}/tmp && mv ${DIR}/tmp ~/.zshrc
 fi
 
+# install z
 if [[ ! -e ~/.oh-my-zsh/z.sh ]]; then
     curl -fLo ~/.oh-my-zsh/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
+fi
+
+# install fzf
+if [[ ! -e ~/.fzf ]]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    yes | ~/.fzf/install
 fi
 
