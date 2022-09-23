@@ -2,14 +2,21 @@
 # Base Develop Environment
 #----------------------------------------------------------------------------
 FROM ubuntu:22.04 AS base-dev
-ARG PKGS="vim zsh tmux man git iputils-ping locate file curl wget zip unzip tree rsync net-tools python3 htop ncdu dstat axel gcc g++"
-ARG PKGS2="tig fd"
+
+ARG PKGS="vim zsh tmux man git iputils-ping locate file curl wget zip unzip tree rsync net-tools python3 htop ncdu dstat gcc g++"
+ARG PKGS2="axel tig fd-find ripgrep bat duf"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
-ENV LANGUAGE=en_US.UTF-8
-ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 RUN apt update && apt install -y ${PKGS} ${PKGS2}
+
+ARG PKG_DELTA_VERSION=0.14.0
+ARG PKG_DELTA_NAME=git-delta_${PKG_DELTA_VERSION}_amd64.deb
+ARG PKG_DELTA_URL=https://github.com/dandavison/delta/releases/download/0.14.0/${PKG_DELTA_NAME}
+RUN curl -fLo /tmp/${PKG_DELTA_NAME} ${PKG_DELTA_URL} && \
+    dpkg -i /tmp/${PKG_DELTA_NAME} && \
+    rm /tmp/${PKG_DELTA_NAME}
+
 RUN git clone https://github.com/tworuler/my-linux-config.git /tmp/my-linux-config && \
     bash /tmp/my-linux-config/install.sh && \
     rm -rf /tmp/my-linux-config
