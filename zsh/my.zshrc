@@ -99,4 +99,4 @@ alias gitomzd="command git config --add oh-my-zsh.hide-status 1 && git config --
 
 # fzf
 export FZF_DEFAULT_OPTS='--layout=reverse --inline-info --ansi'
-BAT_THEME='Visual Studio Dark+'
+export BAT_THEME='Visual Studio Dark+'
