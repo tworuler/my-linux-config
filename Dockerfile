@@ -8,7 +8,8 @@ ARG PKGS2="axel tig fd-find ripgrep bat duf"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 ENV LANG=en_US.UTF-8
-RUN apt update && apt install -y ${PKGS} ${PKGS2}
+RUN apt update && apt install -y ${PKGS} ${PKGS2} && \
+    ln -s python3 /usr/bin/python
 
 ARG PKG_DELTA_VERSION=0.14.0
 ARG PKG_DELTA_NAME=git-delta_${PKG_DELTA_VERSION}_amd64.deb
