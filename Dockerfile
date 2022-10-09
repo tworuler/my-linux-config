@@ -4,12 +4,13 @@
 FROM ubuntu:22.04 AS base-dev
 
 ARG PKGS="vim zsh tmux man git iputils-ping locate file curl wget zip unzip tree rsync net-tools python3 htop ncdu dstat gcc g++"
-ARG PKGS2="axel tig fd-find ripgrep bat duf"
+ARG PKGS2="software-properties-common pip axel tig fd-find ripgrep bat duf"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 ENV LANG=en_US.UTF-8
 RUN apt update && apt install -y ${PKGS} ${PKGS2} && \
-    ln -s python3 /usr/bin/python
+    ln -s python3 /usr/bin/python && \
+    ln -s fdfind /usr/bin/fd
 
 ARG PKG_DELTA_VERSION=0.14.0
 ARG PKG_DELTA_NAME=git-delta_${PKG_DELTA_VERSION}_amd64.deb
@@ -26,7 +27,7 @@ RUN git clone https://github.com/tworuler/my-linux-config.git /tmp/my-linux-conf
 # CPP Environment
 #----------------------------------------------------------------------------
 FROM base-dev AS cpp-dev
-ARG CPP_PKGS="cmake ninja-build libopencv-dev llvm clang libc++-dev gdb"
+ARG CPP_PKGS="cmake ninja-build libopencv-dev llvm clang libc++-dev libc++abi-dev gdb"
 RUN apt update && apt install -y ${CPP_PKGS}
 
 #----------------------------------------------------------------------------
