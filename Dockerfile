@@ -4,12 +4,15 @@
 FROM ubuntu:22.04 AS base-dev
 
 ARG PKGS="vim zsh tmux man git iputils-ping locate file curl wget zip unzip tree rsync net-tools python3 htop ncdu dstat gcc g++"
-ARG PKGS2="software-properties-common pip axel tig fd-find ripgrep bat duf"
+ARG PKGS2="software-properties-common pip axel tig fd-find ripgrep bat duf neofetch"
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 ENV LANG=en_US.UTF-8
-RUN apt update && apt install -y ${PKGS} ${PKGS2} && \
-    ln -s python3 /usr/bin/python && \
+COPY ubuntu/apt_source_list.sh /tmp/apt_source_list.sh
+RUN /tmp/apt_source_list.sh && rm /tmp/apt_source_list.sh
+RUN apt update && apt install -y ${PKGS} && \
+    ln -s python3 /usr/bin/python
+RUN apt install -y ${PKGS2} && \
     ln -s fdfind /usr/bin/fd
 
 ARG PKG_DELTA_VERSION=0.14.0
@@ -22,6 +25,8 @@ RUN curl -fLo /tmp/${PKG_DELTA_NAME} ${PKG_DELTA_URL} && \
 RUN git clone https://github.com/tworuler/my-linux-config.git /tmp/my-linux-config && \
     bash /tmp/my-linux-config/install.sh && \
     rm -rf /tmp/my-linux-config
+
+RUN apt install zoxide && echo 'eval "$(zoxide init zsh)"' >> /root/.zshrc
 
 #----------------------------------------------------------------------------
 # CPP Environment
