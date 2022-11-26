@@ -10,9 +10,9 @@ if [[ ! -d ~/.oh-my-zsh ]]; then
 fi
 
 ls ${DIR}/*.zsh-theme | xargs -I {} cp {} ~/.oh-my-zsh/themes/
-cp ${DIR}/my.zshrc ~/.oh-my-zsh/my.zshrc
+cp ${DIR}/base.zsh ~/.oh-my-zsh/base.zsh
 
-LOAD_ZSH="[[ -s ~/.oh-my-zsh/my.zshrc ]] && source ~/.oh-my-zsh/my.zshrc"
+LOAD_ZSH="[[ -s ~/.oh-my-zsh/base.zsh ]] && source ~/.oh-my-zsh/base.zsh"
 if [[ ! -e ~/.zshrc ]]; then
     echo -e "${LOAD_ZSH}\n" >  ~/.zshrc
 elif [[ $(grep "${LOAD_ZSH}" ~/.zshrc) == "" ]]; then

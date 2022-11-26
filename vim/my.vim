@@ -67,7 +67,7 @@ let g:formatter_yapf_style = 'pep8'
 "            \ "IndentWidth" : 2}
 
 "nerdtree config
-"nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <C-E> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>n :NERDTreeVCSFind<CR>
 nnoremap <silent> <leader>t :NERDTreeToggleVCS \| wincmd p<CR>
 let NERDTreeShowLineNumbers=1
@@ -118,6 +118,8 @@ let g:miniBufExplBRSplit = 0
 " ctrlp config
 " let g:ctrlp_map='<c-p>'
 " let g:ctrlp_cmp='CtrlP'
+
+nnoremap <silent> <C-P> :Files<CR>
 
 " vim-cpp-enhanced-highlight config
 let g:cpp_class_scope_highlight = 1
